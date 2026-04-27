@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トレーラーハウス メーカーナビ｜北海道キャンプ場開業・投資サポート</title>
+    <title>【2026最新】北海道トレーラーハウス比較ナビ｜キャンプ場開業・投資ガイド</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
@@ -11,70 +11,73 @@
         :root {
             --primary: #1e3a8a;
             --primary-light: #3b82f6;
+            --hokkaido: #166534;
             --accent: #e11d48;
-            --hokkaido-green: #166534;
-            --bg-slate: #f8fafc;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --radius-lg: 16px;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --radius: 12px;
         }
 
+        /* Base Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
+        body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; word-break: break-all; }
 
         /* Header */
-        header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; }
         .header-inner { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; }
+        .logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
 
         /* Hero */
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 4rem 1.5rem; text-align: center; }
-        .hero h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); margin-bottom: 1rem; line-height: 1.3; }
-        .hero p { opacity: 0.9; max-width: 700px; margin: 0 auto 2rem; }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 5rem 1.5rem; text-align: center; }
+        .hero-badge { background: var(--hokkaido); color: white; padding: 4px 16px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; display: inline-block; }
+        .hero h1 { font-size: clamp(1.6rem, 6vw, 2.8rem); margin-bottom: 1.5rem; line-height: 1.2; }
+        .hero p { opacity: 0.9; max-width: 800px; margin: 0 auto; font-size: 1rem; }
 
-        /* Tabs */
-        .tabs-wrapper { background: white; border-bottom: 1px solid #e2e8f0; sticky; top: 72px; z-index: 90; }
-        .tabs { max-width: 1200px; margin: 0 auto; display: flex; }
-        .tab-btn { flex: 1; padding: 1.25rem; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--text-muted); border-bottom: 3px solid transparent; transition: 0.3s; }
-        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+        /* Navigation Tabs */
+        .tabs-wrapper { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 65px; z-index: 900; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .tabs { max-width: 1200px; margin: 0 auto; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .tab-btn { flex: 1; min-width: 130px; padding: 1.25rem 0.5rem; border: none; background: none; cursor: pointer; font-weight: 700; color: #64748b; border-bottom: 3px solid transparent; font-size: 0.9rem; transition: 0.3s; }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); background: #f1f5f9; }
 
-        /* Container */
-        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; }
+        /* Main Content */
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
         .section { display: none; }
-        .section.active { display: block; }
+        .section.active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Grid & Cards */
+        /* Maker Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-        .card { background: white; border-radius: var(--radius-lg); padding: 2rem; border: 1px solid #e2e8f0; transition: 0.3s; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-        .featured-tag { position: absolute; top: -10px; right: 20px; background: var(--hokkaido-green); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+        .card { background: white; border-radius: var(--radius); padding: 2rem; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; flex-direction: column; position: relative; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: var(--primary-light); }
+        .rec-badge { position: absolute; top: -12px; left: 20px; background: var(--hokkaido); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 
-        .badge { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .badge-blue { background: #dbeafe; color: #1e40af; }
-        .badge-red { background: #fee2e2; color: #b91c1c; }
+        .maker-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 12px; }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+        .tag { font-size: 0.7rem; padding: 3px 10px; border-radius: 4px; font-weight: 700; }
+        .tag-cold { background: #e0f2fe; color: #0369a1; }
+        .tag-sauna { background: #fee2e2; color: #991b1b; }
+        .tag-local { background: #f0fdf4; color: #166534; }
+        .tag-design { background: #fef2f2; color: #991b1b; }
 
-        /* Showroom Card Specific */
-        .showroom-card { display: flex; flex-direction: column; justify-content: space-between; }
-        .btn-reserve { display: block; width: 100%; text-align: center; background: var(--primary); color: white; padding: 0.8rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-top: 1.5rem; transition: 0.2s; }
-        .btn-reserve:hover { background: #1e40af; }
+        .maker-desc { font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem; flex-grow: 1; }
+        .btn-main { display: block; width: 100%; text-align: center; background: var(--primary); color: white; padding: 1rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .btn-main:hover { background: #1e40af; }
 
-        /* Comparison Table */
-        .table-scroll { overflow-x: auto; background: white; border-radius: var(--radius-lg); border: 1px solid #e2e8f0; }
-        table { width: 100%; border-collapse: collapse; min-width: 800px; }
-        th { background: #f1f5f9; padding: 1rem; text-align: left; font-size: 0.85rem; }
-        td { padding: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.9rem; }
+        /* Compare Table */
+        .table-wrap { overflow-x: auto; background: white; border-radius: var(--radius); border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; min-width: 1200px; font-size: 0.85rem; }
+        th { background: #f8fafc; padding: 1.25rem 1rem; text-align: left; color: #64748b; font-weight: 700; border-bottom: 2px solid #e2e8f0; }
+        td { padding: 1.25rem 1rem; border-top: 1px solid #e2e8f0; vertical-align: top; }
+        tr:hover { background: #f1f5f9; }
 
         /* Footer */
-        footer { background: #0f172a; color: white; padding: 4rem 1.5rem; text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-        .footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.8rem; }
+        footer { background: #0f172a; color: #94a3b8; padding: 5rem 1.5rem; text-align: center; margin-top: 5rem; }
+        .footer-note { font-size: 0.75rem; max-width: 900px; margin: 2rem auto 0; line-height: 1.8; opacity: 0.6; border-top: 1px solid #1e293b; padding-top: 2rem; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
             .grid { grid-template-columns: 1fr; }
+            .hero { padding: 3.5rem 1.2rem; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -82,25 +85,22 @@
 
 <header>
     <div class="header-inner">
-        <a href="#" class="logo">🏔️ TRAILER NAVI</a>
-        <nav class="nav-links">
-            <a href="https://trailer-house-hokkaido.com/for-investment/reservation" target="_blank">開業相談・予約</a>
-        </nav>
+        <a href="#" class="logo">🏔️ TRAILER NAVI 2026</a>
+        <a href="https://trailer-house-hokkaido.com/for-investment/reservation" target="_blank" style="text-decoration:none; background:var(--primary); color:white; padding:8px 16px; border-radius:6px; font-size:0.8rem; font-weight:700;">北海道開業 投資相談 ↗</a>
     </div>
 </header>
 
 <section class="hero">
-    <div class="hero-inner">
-        <h1>北海道キャンプ場開業を<br>トレーラーハウスで加速させる</h1>
-        <p>国内主要メーカーの最新スペック、展示会場、予約窓口を網羅。積雪・断熱対策が必須の北海道において、最適なパートナー選びをサポートします。</p>
-    </div>
+    <div class="hero-badge">北海道・極寒地対応 厳選16社</div>
+    <h1>北海道キャンプ場開業の<br>パートナーを徹底比較</h1>
+    <p>「断熱性能」「積雪対応」「デザイン」「法的安心感」を軸に、日本国内の主要16メーカーを網羅。宿泊事業としての成功に不可欠なデータを一括比較できます。</p>
 </section>
 
 <div class="tabs-wrapper">
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('makers')">メーカー紹介</button>
-        <button class="tab-btn" onclick="switchTab('showrooms')">展示会場・予約</button>
-        <button class="tab-btn" onclick="switchTab('compare')">スペック比較</button>
+        <button class="tab-btn active" onclick="switchTab('makers')">メーカー検索</button>
+        <button class="tab-btn" onclick="switchTab('compare')">全社スペック比較表</button>
+        <button class="tab-btn" onclick="switchTab('showrooms')">全国展示場・予約</button>
     </div>
 </div>
 
@@ -109,123 +109,199 @@
         <div class="grid" id="makers-grid"></div>
     </section>
 
-    <section id="showrooms" class="section">
-        <div style="margin-bottom: 2rem; text-align: center;">
-            <p>※実物見学は完全予約制です。各社の予約専用サイトよりお申し込みください。</p>
-        </div>
-        <div class="grid" id="showroom-grid"></div>
-    </section>
-
     <section id="compare" class="section">
-        <div class="table-scroll">
+        <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
-                        <th>メーカー</th>
-                        <th>主な用途</th>
-                        <th>車検対応</th>
-                        <th>北海道実績</th>
-                        <th>特徴</th>
+                        <th style="width:180px">メーカー名</th>
+                        <th>拠点</th>
+                        <th>北海道対応力</th>
+                        <th>寒冷地・雪害対策</th>
+                        <th>主な強み・用途</th>
+                        <th>参考価格帯</th>
                     </tr>
                 </thead>
                 <tbody id="compare-tbody"></tbody>
             </table>
         </div>
     </section>
+
+    <section id="showrooms" class="section">
+        <div style="text-align:center; margin-bottom:3rem;">
+            <h2>実物・ショールーム予約</h2>
+            <p style="color:#64748b;">北海道の冬を乗り切る「暖かさ」と「質感」を、実物で体験してください。</p>
+        </div>
+        <div class="grid" id="showroom-grid"></div>
+    </section>
 </main>
 
 <footer>
-    <p>&copy; 2026 トレーラーハウス メーカーナビ｜北海道キャンプ場開業サポート</p>
-    <div class="footer-links" id="footer-links"></div>
+    <p>&copy; 2026 北海道トレーラーハウス比較ナビ｜開業・投資サポート</p>
+    <div class="footer-note">
+        【免責事項】掲載情報は2026年4月現在のリサーチに基づいたものであり、各メーカーの最新仕様、価格、法適合性（車両扱いか建築物扱いか等）を保証するものではありません。設置予定地域の条例等により判断が分かれる場合があります。詳細および最新の空き状況については、必ず各社公式サイトより直接お問い合わせください。
+        <br><br>
+        【全16掲載メーカー（順不同）】アーキ21(smamo), パークホームズ, THD, カスケード, ルクラ, YIDAW, クロコ, BURROW, カンバーランド・ジャパン, HCT, BIBOX, フィールドコア, ベルウッド, ナミリス, MOBIHO, 天城カントリー工房
+    </div>
 </footer>
 
 <script>
     const makers = [
-        {
-            name: "トレーラーハウスデベロップメント (THD)",
-            short: "THD",
-            tags: ["宿泊", "店舗", "事務所"],
-            desc: "国内シェアNO.1。全車両「車検付」で移動の自由と資産価値を両立。北海道の積雪・寒冷地設置実績が最も豊富です。",
-            featured: true,
-            hokkaido: "✅ 多数あり",
-            shaken: "✅ 全車取得",
-            url: "https://www.trailer-house.co.jp/"
+        { 
+            name: "株式会社 アーキ21 (smamo)", 
+            short: "アーキ21", 
+            loc: "北海道千歳市", 
+            tags: ["北海道品質", "超高断熱", "北欧風"], 
+            desc: "北海道の気候を知り尽くした住宅メーカーが放つ最高峰モデル「smamo」。結露・凍結を防ぐ24時間換気と住宅同等の断熱壁が、通年営業の要に。", 
+            cold: "✅ 北海道基準標準装備", 
+            legal: "車両扱い適合", 
+            strength: "道内最高レベルの断熱・気密性", 
+            price: "要問合せ", 
+            url: "https://www.archi21.co.jp/product/smamo.html" 
         },
-        {
-            name: "ルクラ株式会社 (Lukura)",
-            short: "ルクラ",
-            tags: ["店舗", "サロン", "宿泊"],
-            desc: "デザイン性とカスタマイズ性に強み。美容院やカフェとしての利用が多く、開業予約システムも完備されています。",
-            featured: false,
-            hokkaido: "⚠️ 要相談",
-            shaken: "✅ 対応可",
-            url: "https://www.lukura.jp/"
+        { 
+            name: "株式会社パークホームズ", 
+            short: "パークホームズ", 
+            loc: "宮城県仙台市", 
+            tags: ["寒冷地標準", "スライドアウト", "SNS映え"], 
+            desc: "仙台発祥のため、全機種が寒冷地仕様。スライドアウト機能（拡幅）による50㎡超の空間と、アメリカンスタイルの外観が宿泊客の注目を集めます。", 
+            cold: "✅ 全機種寒冷地標準", 
+            legal: "車両扱い適合", 
+            strength: "圧倒的な広さとデザイン性", 
+            price: "238万〜", 
+            url: "https://www.parkhomes.jp/" 
         },
-        {
-            name: "カンバーランド・ジャパン",
-            short: "カンバーランド",
-            tags: ["宿泊", "RVパーク", "2階建"],
-            desc: "日本のトレーラーハウスの先駆け。RVリゾート開発のパイオニアで、宿泊事業のノウハウ提供が強みです。",
-            featured: true,
-            hokkaido: "✅ 実績あり",
-            shaken: "✅ 対応可",
-            url: "https://www.cumberland.jp/"
+        { 
+            name: "トレーラーハウスデベロップメント (THD)", 
+            short: "THD", 
+            loc: "東京都・苫小牧", 
+            tags: ["国内最大手", "車検付", "行政対応"], 
+            desc: "国内シェアNO.1。苫小牧にも拠点を持ち、道内の設置実績が極めて豊富。全車両車検取得により、銀行融資やコンプライアンス面での安心感が抜群。", 
+            cold: "✅ 北海道実績最多", 
+            legal: "全車車検取得", 
+            strength: "法的安定性とトータルサポート", 
+            price: "400万〜", 
+            url: "https://www.trailer-house.co.jp/" 
         },
-        {
-            name: "HCT (ハウスカーテクノロジー)",
-            short: "HCT",
-            tags: ["大型店舗", "事務所"],
-            desc: "LIXILグループとの連携による高い住設品質。最大級のサイズと高い断熱性能をLPで詳しく公開しています。",
-            featured: false,
-            hokkaido: "✅ 対応可",
-            shaken: "✅ 対応可",
-            url: "https://hc-t.jp/lp/"
+        { 
+            name: "カスケード (CASCADE TRAILER)", 
+            short: "カスケード", 
+            loc: "北海道札幌市", 
+            tags: ["札幌拠点", "積雪荷重対応", "実用的"], 
+            desc: "札幌拠点の強みを活かし、北海道特有の豪雪環境に最適化した設計を提供。道内各地のキャンプ場への導入・メンテナンス体制が充実。", 
+            cold: "✅ 北海道仕様標準", 
+            legal: "車両扱い適合", 
+            strength: "道内拠点による迅速なメンテ", 
+            price: "要問合せ", 
+            url: "https://cascadetrailer.jp/" 
         },
-        {
-            name: "BIBOX",
-            short: "BIBOX",
-            tags: ["住居", "趣味", "BOX型"],
-            desc: "スタイリッシュなコンテナ風外観が特徴。定住や趣味の部屋として、2026年最新のライフスタイルを提案。",
-            featured: false,
-            hokkaido: "⚠️ 寒冷地仕様確認",
-            shaken: "✅ 対応可",
-            url: "https://bibox.style/"
-        }
+        { 
+            name: "株式会社 クロコ (CROCO)", 
+            short: "クロコ", 
+            loc: "東京都中央区", 
+            tags: ["高級感", "超スタイリッシュ", "新興"], 
+            desc: "既存のイメージを覆すモダンアートのようなデザイン。富裕層向けの高級グランピング施設など、圧倒的な差別化を図りたいプロジェクトに。", 
+            cold: "✅ 断熱カスタム可", 
+            legal: "車両扱い適合", 
+            strength: "他社にないビジュアル差別化", 
+            price: "要問合せ", 
+            url: "https://croco-trailer.jp/" 
+        },
+        { 
+            name: "BURROW (バロウ)", 
+            short: "BURROW", 
+            loc: "茨城県 (全国対応)", 
+            tags: ["サウナ特化", "国産ヒノキ", "高単価"], 
+            desc: "バレルサウナ搭載トレーラーの専門。北海道の冬の「外気浴」を極上のコンテンツへ。宿泊にプラスαの価値を生む強力な集客フックに。", 
+            cold: "✅ サウナ断熱構造", 
+            legal: "車両扱い適合", 
+            strength: "サウナ併設による収益性向上", 
+            price: "要問合せ", 
+            url: "https://burrow.co.jp/" 
+        },
+        { 
+            name: "株式会社 YIDAW (Wellness Cabin)", 
+            short: "YIDAW", 
+            loc: "東京都千代田区", 
+            tags: ["オフグリッド", "サウナ併設", "高付加価値"], 
+            desc: "「Wellness Cabin」を展開。宿泊＋サウナ＋高品質な居住空間。オフグリッド対応など、インフラ整備が難しい土地への設置に強み。", 
+            cold: "✅ 高断熱対応", 
+            legal: "車両扱い適合", 
+            strength: "本格サウナとデザインの両立", 
+            price: "要問合せ", 
+            url: "https://1stwood-group.co.jp/wellness-cabin/" 
+        },
+        { 
+            name: "ルクラ株式会社", 
+            short: "ルクラ", 
+            loc: "愛知県豊橋市", 
+            tags: ["店舗デザイン", "女性人気", "内装美"], 
+            desc: "美容院やカフェに強いデザイン力。内装クオリティが非常に高く、コテージ風の可愛らしい宿泊体験を提供したいオーナーから高評価。", 
+            cold: "⚠️ オプション対応", 
+            legal: "車検対応可", 
+            strength: "店舗転用も可能な内装美", 
+            price: "280万〜", 
+            url: "https://www.lukura.jp/reservation/" 
+        },
+        { 
+            name: "MOBIHO (モバイルホスピタル)", 
+            short: "MOBIHO", 
+            loc: "東京都中央区", 
+            tags: ["宿泊専用", "リース・レンタル", "初期投資"], 
+            desc: "宿泊事業に特化した「移動するホテル」。投資家向けのリースプランやレンタル導入が充実。早期の多店舗展開やコスト管理に強い。", 
+            cold: "✅ 対応可", 
+            legal: "車両扱い適合", 
+            strength: "初期投資の抑制・リース活用", 
+            price: "250万〜", 
+            url: "https://mobiho.jp/" 
+        },
+        { 
+            name: "天城カントリー工房", 
+            short: "天城カントリー", 
+            loc: "静岡県 (全国対応)", 
+            tags: ["木造", "タイニーハウス", "ログハウス"], 
+            desc: "ログハウスメーカーが作る、木の香り漂うトレーラー。住宅レベルの壁厚と断熱材。北海道の森の風景に完璧に溶け込む質感。", 
+            cold: "✅ 住宅基準断熱", 
+            legal: "車両扱い適合", 
+            strength: "木の温もりと圧倒的な居住性", 
+            price: "450万〜", 
+            url: "https://amagigumi.com/tinyhouse" 
+        },
+        { name: "カンバーランド・ジャパン", short: "カンバーランド", loc: "長野県", tags: ["パイオニア", "2階建て"], desc: "日本のパイオニア。自社でRVパーク運営も行い、現場のノウハウを設計に反映。", cold: "✅ 実績豊富", legal: "車両扱い適合", strength: "RVリゾート運営知見", price: "250万〜", url: "https://www.cumberland.jp/" },
+        { name: "HCT", short: "HCT", loc: "愛知県", tags: ["LIXIL提携", "大型モデル"], desc: "LIXILの住設を採用。最大3.5m幅の大型モデルで事務所や店舗需要に強い。", cold: "✅ 対応可", legal: "車両扱い適合", strength: "高品質住設", price: "350万〜", url: "https://hc-t.jp/lp/" },
+        { name: "BIBOX", short: "BIBOX", loc: "千葉県", tags: ["BOX型", "ミニマル"], desc: "コンテナ風のモダン外観。2026年のトレンドを抑えたミニマルな宿泊施設に。", cold: "⚠️ 要確認", legal: "車両扱い適合", strength: "モダンな外観デザイン", price: "200万〜", url: "https://bibox.style/" },
+        { name: "フィールドコア", short: "フィールドコア", loc: "静岡県", tags: ["コンパクト", "機動性"], desc: "駐車場1台分に収まる機動力。ミニマルな宿泊拠点や店舗に最適。", cold: "⚠️ 要確認", legal: "車両扱い適合", strength: "コンパクト・高機動", price: "要問合せ", url: "https://pro-styleshizuoka.com/field-trailer/" },
+        { name: "ベルウッド", short: "ベルウッド", loc: "兵庫県", tags: ["2x4構造", "低コスト"], desc: "2×4の住宅工法を採用。直販によるコストパフォーマンスと安心感を追求。", cold: "✅ 対応可", legal: "車両扱い適合", strength: "住宅性能の高さ", price: "要問合せ", url: "https://www.trailerhouse-himeji.com/" },
+        { name: "ナミリス", short: "ナミリス", loc: "埼玉県", tags: ["老舗", "法的安定性"], desc: "車検取得と行政協議のスペシャリスト。銀行融資を前提とした投資に強い。", cold: "✅ カスタム可", legal: "全車車検取得", strength: "コンプライアンスの高さ", price: "要問合せ", url: "https://namilis.co.jp/" }
     ];
 
     const showrooms = [
-        { name: "北海道 苫小牧展示場", maker: "THD", addr: "北海道苫小牧市", btnLabel: "北海道開業相談・予約", url: "https://trailer-house-hokkaido.com/for-investment/reservation" },
-        { name: "ルクラ 豊橋ショールーム", maker: "ルクラ", addr: "愛知県豊橋市", btnLabel: "見学予約ページへ", url: "https://www.lukura.jp/reservation/" },
-        { name: "つくば展示場 (関東最大級)", maker: "THD", addr: "茨城県つくば市", btnLabel: "見学予約する", url: "https://www.trailer-house.co.jp/" },
-        { name: "長野本社展示場", maker: "カンバーランド", addr: "長野県須坂市", btnLabel: "公式サイトで確認", url: "https://www.cumberland.jp/" },
-        { name: "BIBOX 千葉木更津展示場", maker: "BIBOX", addr: "千葉県木更津市", btnLabel: "見学予約(公式サイト)", url: "https://bibox.style/" },
-        { name: "HCT 名古屋/岐阜ショールーム", maker: "HCT", addr: "愛知県・岐阜県", btnLabel: "事業用LPで詳細を見る", url: "https://hc-t.jp/lp/" }
+        { name: "アーキ21 恵庭展示場", loc: "北海道恵庭市", maker: "アーキ21", url: "https://www.archi21.co.jp/" },
+        { name: "THD 苫小牧展示場", loc: "北海道苫小牧市", maker: "THD", url: "https://trailer-house-hokkaido.com/for-investment/reservation" },
+        { name: "カスケード 札幌ショールーム", loc: "北海道札幌市", maker: "カスケード", url: "https://cascadetrailer.jp/" },
+        { name: "パークホームズ 仙台本店", loc: "宮城県仙台市", maker: "パークホームズ", url: "https://www.parkhomes.jp/" },
+        { name: "ルクラ 豊橋ショールーム", loc: "愛知県豊橋市", maker: "ルクラ", url: "https://www.lukura.jp/reservation/" },
+        { name: "BURROW サウナ体験場", loc: "全国各地 (予約制)", maker: "BURROW", url: "https://burrow.co.jp/" },
+        { name: "天城カントリー工房 展示場", loc: "静岡・全国", maker: "天城カントリー", url: "https://amagigumi.com/tinyhouse" }
     ];
 
     function renderMakers() {
         const grid = document.getElementById('makers-grid');
         grid.innerHTML = makers.map(m => `
             <div class="card">
-                ${m.featured ? '<div class="featured-tag">北海道実績NO.1</div>' : ''}
-                <span class="badge badge-blue">${m.tags.join(' / ')}</span>
-                <h3 style="margin: 0.5rem 0;">${m.name}</h3>
-                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem;">${m.desc}</p>
-                <a href="${m.url}" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">公式サイト ↗</a>
-            </div>
-        `).join('');
-    }
-
-    function renderShowrooms() {
-        const grid = document.getElementById('showroom-grid');
-        grid.innerHTML = showrooms.map(s => `
-            <div class="card showroom-card">
-                <div>
-                    <span class="badge badge-red">完全予約制</span>
-                    <h3 style="font-size: 1.1rem; margin: 0.5rem 0;">${s.name}</h3>
-                    <p style="font-size: 0.85rem; color: #64748b;">運営: ${s.maker}</p>
-                    <p style="font-size: 0.85rem; color: #1e293b; margin-top: 0.5rem;">📍 ${s.addr}</p>
+                ${m.loc.includes('北海道') || m.short === 'パークホームズ' || m.short === 'THD' ? '<div class="rec-badge">北海道推奨</div>' : ''}
+                <h3 class="maker-name">${m.short}</h3>
+                <div class="tag-row">
+                    ${m.tags.map(t => {
+                        let cls = 'tag-cold';
+                        if(t.includes('サウナ')) cls = 'tag-sauna';
+                        if(t.includes('北海道')) cls = 'tag-local';
+                        if(t.includes('デザイン') || t.includes('映え')) cls = 'tag-design';
+                        return `<span class="tag ${cls}">${t}</span>`;
+                    }).join('')}
                 </div>
-                <a href="${s.url}" target="_blank" class="btn-reserve">${s.btnLabel}</a>
+                <p class="maker-desc">${m.desc}</p>
+                <a href="${m.url}" target="_blank" class="btn-main">公式サイトを見る ↗</a>
             </div>
         `).join('');
     }
@@ -234,12 +310,25 @@
         const tbody = document.getElementById('compare-tbody');
         tbody.innerHTML = makers.map(m => `
             <tr>
-                <td><strong>${m.short}</strong></td>
-                <td>${m.tags.slice(0,2).join(', ')}</td>
-                <td>${m.shaken}</td>
-                <td>${m.hokkaido}</td>
-                <td style="font-size: 0.8rem;">${m.desc.substring(0,30)}...</td>
+                <td><strong>${m.name}</strong></td>
+                <td>${m.loc}</td>
+                <td style="color:var(--hokkaido); font-weight:700;">${m.loc.includes('北海道') ? '◎ 非常に高い' : '◯ 対応可能'}</td>
+                <td>${m.cold}</td>
+                <td>${m.strength}</td>
+                <td style="color:var(--primary); font-weight:700;">${m.price}</td>
             </tr>
+        `).join('');
+    }
+
+    function renderShowrooms() {
+        const grid = document.getElementById('showroom-grid');
+        grid.innerHTML = showrooms.map(s => `
+            <div class="card" style="padding:1.5rem;">
+                <span class="tag tag-local" style="margin-bottom:0.5rem;">📍 ${s.loc}</span>
+                <h3 style="font-size:1.1rem; margin-bottom:0.5rem;">${s.name}</h3>
+                <p style="font-size:0.8rem; color:#64748b; margin-bottom:1.5rem;">運営: ${s.maker}</p>
+                <a href="${s.url}" target="_blank" class="btn-main" style="background:#475569; font-size:0.85rem;">見学予約ページへ</a>
+            </div>
         `).join('');
     }
 
@@ -248,13 +337,13 @@
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         event.currentTarget.classList.add('active');
+        window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 65, behavior: 'smooth' });
     }
 
-    // Init
+    // Initialize
     renderMakers();
-    renderShowrooms();
     renderCompare();
-    document.getElementById('footer-links').innerHTML = makers.map(m => `<a href="${m.url}" target="_blank">${m.short}</a>`).join('');
+    renderShowrooms();
 </script>
 
 </body>
