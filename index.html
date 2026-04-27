@@ -1,553 +1,261 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>トレーラーハウス メーカーナビ｜北海道キャンプ場開業サポート</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    /* Color Palette - Professional & Nature */
-    --primary: #1e3a8a;       /* Deep Navy */
-    --primary-light: #3b82f6;
-    --secondary: #166534;     /* Forest Green */
-    --accent: #f59e0b;        /* Warm Amber */
-    --bg-main: #f8fafc;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --white: #ffffff;
-    --border: #e2e8f0;
-    
-    /* System Styles */
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 12px -2px rgba(0,0,0,0.08);
-    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トレーラーハウス メーカーナビ｜北海道キャンプ場開業・投資サポート</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #e11d48;
+            --hokkaido-green: #166534;
+            --bg-slate: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --radius-lg: 16px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
 
-  body {
-    font-family: 'Noto Sans JP', 'Inter', sans-serif;
-    background: var(--bg-main);
-    color: var(--text-main);
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
+        /* Header */
+        header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; }
 
-  /* --- Header --- */
-  header {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 72px;
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--primary);
-  }
-  .logo-icon {
-    font-size: 24px;
-    background: var(--bg-main);
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-  }
-  .logo-text-group { display: flex; flex-direction: column; }
-  .logo-text { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; line-height: 1.2; }
-  .logo-sub { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 4rem 1.5rem; text-align: center; }
+        .hero h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); margin-bottom: 1rem; line-height: 1.3; }
+        .hero p { opacity: 0.9; max-width: 700px; margin: 0 auto 2rem; }
 
-  .header-nav { display: flex; gap: 1.5rem; }
-  .header-nav a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: var(--transition);
-  }
-  .header-nav a:hover { color: var(--primary-light); }
+        /* Tabs */
+        .tabs-wrapper { background: white; border-bottom: 1px solid #e2e8f0; sticky; top: 72px; z-index: 90; }
+        .tabs { max-width: 1200px; margin: 0 auto; display: flex; }
+        .tab-btn { flex: 1; padding: 1.25rem; border: none; background: none; cursor: pointer; font-weight: 700; color: var(--text-muted); border-bottom: 3px solid transparent; transition: 0.3s; }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
 
-  /* --- Hero Section --- */
-  .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-    color: var(--white);
-    padding: 5rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -10%; right: -5%;
-    width: 40%; height: 60%;
-    background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
-    filter: blur(40px);
-  }
-  .hero-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 6px 16px;
-    border-radius: 99px;
-    font-size: 0.85rem;
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(4px);
-  }
-  .hero h1 {
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-  .hero-desc {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    max-width: 700px;
-    margin: 0 auto 3rem;
-  }
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-  .hero-stat {
-    background: rgba(255,255,255,0.05);
-    padding: 1.25rem;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .hero-stat-num { font-size: 1.5rem; font-weight: 700; color: var(--primary-light); display: block; }
-  .hero-stat-label { font-size: 0.75rem; opacity: 0.7; }
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; }
+        .section { display: none; }
+        .section.active { display: block; }
 
-  /* --- Navigation Tabs --- */
-  .tabs-nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 72px;
-    z-index: 99;
-  }
-  .tabs-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .tab-btn {
-    padding: 1.25rem 2rem;
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 600;
-    color: var(--text-muted);
-    border-bottom: 3px solid transparent;
-    transition: var(--transition);
-    white-space: nowrap;
-  }
-  .tab-btn.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-  }
+        /* Grid & Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+        .card { background: white; border-radius: var(--radius-lg); padding: 2rem; border: 1px solid #e2e8f0; transition: 0.3s; position: relative; }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .featured-tag { position: absolute; top: -10px; right: 20px; background: var(--hokkaido-green); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
 
-  /* --- Layout & Sections --- */
-  .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
-  .section { display: none; }
-  .section.active { display: block; animation: fadeIn 0.4s ease-out; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .badge { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-red { background: #fee2e2; color: #b91c1c; }
 
-  /* --- Maker Cards --- */
-  .filter-row {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .filter-row input, .filter-row select {
-    padding: 0.6rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-size: 0.9rem;
-    flex: 1;
-    min-width: 200px;
-  }
+        /* Showroom Card Specific */
+        .showroom-card { display: flex; flex-direction: column; justify-content: space-between; }
+        .btn-reserve { display: block; width: 100%; text-align: center; background: var(--primary); color: white; padding: 0.8rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-top: 1.5rem; transition: 0.2s; }
+        .btn-reserve:hover { background: #1e40af; }
 
-  .makers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 1.5rem;
-  }
-  .maker-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .maker-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
-  .maker-card.featured { border: 2px solid var(--primary); }
-  .featured-badge {
-    position: absolute; top: -12px; right: 20px;
-    background: var(--primary); color: white;
-    padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;
-  }
+        /* Comparison Table */
+        .table-scroll { overflow-x: auto; background: white; border-radius: var(--radius-lg); border: 1px solid #e2e8f0; }
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        th { background: #f1f5f9; padding: 1rem; text-align: left; font-size: 0.85rem; }
+        td { padding: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.9rem; }
 
-  .maker-header { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
-  .maker-icon {
-    width: 52px; height: 52px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-  }
-  .maker-title-box h3 { font-size: 1.1rem; line-height: 1.3; margin-bottom: 0.25rem; }
-  .maker-loc { font-size: 0.8rem; color: var(--text-muted); }
+        /* Footer */
+        footer { background: #0f172a; color: white; padding: 4rem 1.5rem; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.8rem; }
 
-  .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
-  .tag { font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
-  .tag-camp { background: #dcfce7; color: #166534; }
-  .tag-res { background: #dbeafe; color: #1e40af; }
-  .tag-off { background: #fef3c7; color: #92400e; }
-
-  .maker-summary { font-size: 0.9rem; color: var(--text-main); margin-bottom: 1.5rem; flex-grow: 1; }
-
-  .spec-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
-    padding-top: 1.25rem; border-top: 1px solid var(--border); margin-bottom: 1.5rem;
-  }
-  .spec-item { display: flex; flex-direction: column; }
-  .spec-label { font-size: 0.7rem; color: var(--text-muted); }
-  .spec-val { font-size: 0.85rem; font-weight: 600; }
-  .val-ok { color: var(--secondary); }
-
-  .btn-web {
-    width: 100%; padding: 0.8rem; text-align: center;
-    background: var(--primary); color: white; text-decoration: none;
-    border-radius: var(--radius-md); font-weight: 600; font-size: 0.9rem;
-    transition: var(--transition);
-  }
-  .btn-web:hover { background: #1e3a8a; opacity: 0.9; }
-
-  /* --- Table Design --- */
-  .table-wrapper { overflow-x: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
-  table { width: 100%; border-collapse: collapse; background: var(--white); text-align: left; }
-  th { background: #f1f5f9; padding: 1rem; font-size: 0.8rem; color: var(--text-muted); border-bottom: 2px solid var(--border); }
-  td { padding: 1rem; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
-  tr:hover { background: #f8fafc; }
-
-  /* --- Camp Page Specifics --- */
-  .alert-card {
-    background: #ecfdf5; border: 1px solid #a7f3d0; padding: 2rem; border-radius: var(--radius-lg);
-    display: flex; gap: 1.5rem; margin-bottom: 3rem;
-  }
-  .alert-card h3 { color: #065f46; margin-bottom: 0.5rem; }
-
-  .checklist-box {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
-  }
-  .check-item {
-    background: var(--white); padding: 1.5rem; border-radius: var(--radius-md);
-    border-left: 4px solid var(--secondary); box-shadow: var(--shadow-sm);
-  }
-  .check-item strong { display: block; margin-bottom: 0.5rem; color: var(--secondary); }
-  .check-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
-
-  /* --- Footer --- */
-  footer { background: #0f172a; color: #94a3b8; padding: 4rem 1.5rem; text-align: center; }
-  .footer-links { margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-  .footer-links a { color: var(--white); text-decoration: none; font-size: 0.8rem; opacity: 0.6; }
-  .footer-links a:hover { opacity: 1; }
-
-  @media (max-width: 768px) {
-    .header-nav { display: none; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .hero { padding: 3rem 1rem; }
-    .filter-row { flex-direction: column; align-items: stretch; }
-  }
-</style>
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <a class="logo" href="#">
-      <div class="logo-icon">🏔️</div>
-      <div class="logo-text-group">
-        <span class="logo-text">TRAILER NAVI</span>
-        <span class="logo-sub">北海道キャンプ場開業サポート</span>
-      </div>
-    </a>
-    <nav class="header-nav">
-      <a href="#" onclick="switchTab('makers')">メーカー検索</a>
-      <a href="#" onclick="switchTab('compare')">比較表</a>
-      <a href="#" onclick="switchTab('showrooms')">展示場</a>
-      <a href="#" onclick="switchTab('camp')">開業ガイド</a>
-    </nav>
-  </div>
+    <div class="header-inner">
+        <a href="#" class="logo">🏔️ TRAILER NAVI</a>
+        <nav class="nav-links">
+            <a href="https://trailer-house-hokkaido.com/for-investment/reservation" target="_blank">開業相談・予約</a>
+        </nav>
+    </div>
 </header>
 
-<div class="hero">
-  <div class="hero-inner">
-    <span class="hero-badge">Professional Support for Hokkaido</span>
-    <h1>北海道の風土に適した<br>トレーラーハウスを厳選比較</h1>
-    <p class="hero-desc">断熱・積雪・法規制。キャンプ場経営に必須のスペックを網羅した国内主要8社の最新データベース。</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-label">掲載メーカー</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">12</span><span class="hero-stat-label">展示拠点</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">ALL</span><span class="hero-stat-label">設置対応エリア</span></div>
-      <div class="hero-stat"><span class="hero-stat-num">FREE</span><span class="hero-stat-label">利用料</span></div>
+<section class="hero">
+    <div class="hero-inner">
+        <h1>北海道キャンプ場開業を<br>トレーラーハウスで加速させる</h1>
+        <p>国内主要メーカーの最新スペック、展示会場、予約窓口を網羅。積雪・断熱対策が必須の北海道において、最適なパートナー選びをサポートします。</p>
     </div>
-  </div>
+</section>
+
+<div class="tabs-wrapper">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('makers')">メーカー紹介</button>
+        <button class="tab-btn" onclick="switchTab('showrooms')">展示会場・予約</button>
+        <button class="tab-btn" onclick="switchTab('compare')">スペック比較</button>
+    </div>
 </div>
 
-<nav class="tabs-nav">
-  <div class="tabs-container">
-    <button class="tab-btn active" data-tab="makers" onclick="switchTab('makers')">メーカー一覧</button>
-    <button class="tab-btn" data-tab="compare" onclick="switchTab('compare')">スペック比較表</button>
-    <button class="tab-btn" data-tab="showrooms" onclick="switchTab('showrooms')">全国展示会場</button>
-    <button class="tab-btn" data-tab="camp" onclick="switchTab('camp')">北海道・開業ガイド</button>
-  </div>
-</nav>
-
 <main class="container">
+    <section id="makers" class="section active">
+        <div class="grid" id="makers-grid"></div>
+    </section>
 
-  <section id="tab-makers" class="section active">
-    <div class="filter-row">
-      <input type="text" id="search-input" placeholder="キーワード検索（メーカー名、特徴など）" oninput="filterMakers()">
-      <select id="use-filter" onchange="filterMakers()">
-        <option value="">すべての用途</option>
-        <option value="camp">宿泊・キャンプ</option>
-        <option value="residential">住居・別荘</option>
-        <option value="office">店舗・オフィス</option>
-      </select>
-      <select id="region-filter" onchange="filterMakers()">
-        <option value="">すべての拠点エリア</option>
-        <option value="kanto">関東</option>
-        <option value="chubu">中部・信州</option>
-        <option value="tokai">東海</option>
-      </select>
-    </div>
-    <div class="makers-grid" id="makers-grid"></div>
-  </section>
+    <section id="showrooms" class="section">
+        <div style="margin-bottom: 2rem; text-align: center;">
+            <p>※実物見学は完全予約制です。各社の予約専用サイトよりお申し込みください。</p>
+        </div>
+        <div class="grid" id="showroom-grid"></div>
+    </section>
 
-  <section id="tab-compare" class="section">
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>メーカー名</th>
-            <th>価格目安</th>
-            <th>キャンプ</th>
-            <th>寒冷地仕様</th>
-            <th>北海道対応</th>
-            <th>カスタム</th>
-            <th>レンタル</th>
-          </tr>
-        </thead>
-        <tbody id="compare-tbody"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="tab-showrooms" class="section">
-    <div class="makers-grid" id="showroom-list"></div>
-  </section>
-
-  <section id="tab-camp" class="section">
-    <div class="alert-card">
-      <div style="font-size:2rem">💡</div>
-      <div>
-        <h3>北海道での開業における重要事項</h3>
-        <p>道内でのトレーラーハウス設置には、マイナス20度を下回る冬期への対策が不可欠です。断熱性能（U値）や積雪荷重設計を必ずメーカーへ確認してください。</p>
-      </div>
-    </div>
-    
-    <div class="checklist-box">
-      <div class="check-item">
-        <strong>1. 高断熱・トリプルガラス</strong>
-        <p>標準仕様では結露や凍結の恐れがあります。寒冷地オプションの有無を確認しましょう。</p>
-      </div>
-      <div class="check-item">
-        <strong>2. 屋根の積雪荷重</strong>
-        <p>エリアにより100cm〜200cmの積雪に耐える構造計算が必要です。</p>
-      </div>
-      <div class="check-item">
-        <strong>3. 搬入路の確保</strong>
-        <p>道内は広大ですが、キャンプ場までの未舗装路や橋の重量制限が壁になることがあります。</p>
-      </div>
-      <div class="check-item">
-        <strong>4. 自治体への事前相談</strong>
-        <p>建築物とみなされるか車両とみなされるか、設置前に各振興局へ確認が必要です。</p>
-      </div>
-    </div>
-
-    <div style="margin-top:4rem; text-align:center;">
-      <h3>🏆 開業推奨メーカー</h3>
-      <div class="makers-grid" id="recommend-grid" style="margin-top:2rem"></div>
-    </div>
-  </section>
-
+    <section id="compare" class="section">
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>メーカー</th>
+                        <th>主な用途</th>
+                        <th>車検対応</th>
+                        <th>北海道実績</th>
+                        <th>特徴</th>
+                    </tr>
+                </thead>
+                <tbody id="compare-tbody"></tbody>
+            </table>
+        </div>
+    </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Trailer House Maker Navi. All Rights Reserved.</p>
-  <div class="footer-links" id="footer-links-container"></div>
+    <p>&copy; 2026 トレーラーハウス メーカーナビ｜北海道キャンプ場開業サポート</p>
+    <div class="footer-links" id="footer-links"></div>
 </footer>
 
 <script>
-/* Data remains essentially the same as your source, structured for the new UI */
-const makers = [
-  { id: 1, name: "トレーラーハウスデベロップメント（THD）", short: "THD", location: "東京都", region: "kanto", icon: "🏢", iconBg: "#eff6ff", featured: true, tags: ["camp","residential","office"], tagLabels: ["宿泊","住居","事務所"], desc: "車検・認可サポートの先駆者。北海道への設置実績が非常に豊富で、行政対応まで一貫した信頼があります。", price: "300万〜", coldSpec: true, hokkaido: true, custom: true, rental: false, url: "https://www.trailer-house.co.jp/" },
-  { id: 2, name: "カンバーランド・ジャパン", short: "CLJ", location: "長野県", region: "chubu", icon: "🌲", iconBg: "#f0fdf4", featured: true, tags: ["camp","residential"], tagLabels: ["宿泊","住居"], desc: "自社でRVリゾートを運営。現場視点のノウハウが凝縮されており、レンタルプランによる初期投資軽減も提案可能。", price: "250万〜", coldSpec: true, hokkaido: true, custom: true, rental: true, url: "https://www.clj.jp/" },
-  { id: 3, name: "ルクラ株式会社", short: "Lukura", location: "神奈川県", region: "kanto", icon: "🏠", iconBg: "#faf5ff", featured: false, tags: ["residential","camp","office"], tagLabels: ["住居","宿泊","店舗"], desc: "洗練された北欧スタイルのデザインが女性や若年層に人気。グランピング施設のビジュアル強化に最適です。", price: "280万〜", coldSpec: true, hokkaido: "要相談", custom: true, rental: false, url: "https://www.lukura.jp/" },
-  { id: 4, name: "HCT（ハウスカーテクノロジー）", short: "HCT", location: "愛知県", region: "tokai", icon: "🏬", iconBg: "#fffbeb", featured: false, tags: ["office","residential"], tagLabels: ["事務所","住居"], desc: "業界最大級のサイズ展開が魅力。カフェや管理棟など、広さを求める用途で高い支持を得ています。", price: "350万〜", coldSpec: false, hokkaido: "要相談", custom: true, rental: false, url: "https://hc-t.jp/" },
-  { id: 5, name: "株式会社パークホームズ", short: "PH", location: "全国対応", region: "kanto", icon: "🇺🇸", iconBg: "#fff1f2", featured: false, tags: ["camp","residential"], tagLabels: ["宿泊","住居"], desc: "本場アメリカン・スタイルの輸入モデルを扱う。広大な北海道の風景に馴染む、圧倒的な存在感が特徴です。", price: "400万〜", coldSpec: false, hokkaido: true, custom: false, rental: false, url: "https://www.fleetwood-parkhome.jp/" },
-  { id: 6, name: "なみりすジャパン", short: "NJ", location: "埼玉県", region: "kanto", icon: "☕", iconBg: "#f0fdfa", featured: false, tags: ["camp","office"], tagLabels: ["宿泊","店舗"], desc: "低価格帯からスタートできるコストパフォーマンスが武器。デザインの自由度も高く、個性的なカフェ併設に強い。", price: "200万〜", coldSpec: false, hokkaido: "要相談", custom: true, rental: false, url: "http://trailer-houses.com/" },
-  { id: 7, name: "群馬陸送有限会社", short: "GR", location: "群馬県", region: "kanto", icon: "🚚", iconBg: "#f8fafc", featured: false, tags: ["residential","camp"], tagLabels: ["住居","宿泊"], desc: "輸送のプロが作る家。搬送から設置までの工程がスムーズで、住宅レベルの居住性を確保しています。", price: "250万〜", coldSpec: false, hokkaido: "要相談", custom: true, rental: false, url: "http://www.trailer-house.biz/" },
-  { id: 8, name: "株式会社トーエイ", short: "TE", location: "全国対応", region: "kanto", icon: "✨", iconBg: "#fff7ed", featured: false, tags: ["camp","office"], tagLabels: ["宿泊","店舗"], desc: "エアストリーム等の輸入中古から自社製まで。ヴィンテージ感を出したい施設運営者に選ばれています。", price: "300万〜", coldSpec: false, hokkaido: "要相談", custom: true, rental: false, url: "http://www.toei-trailer.com/" }
-];
+    const makers = [
+        {
+            name: "トレーラーハウスデベロップメント (THD)",
+            short: "THD",
+            tags: ["宿泊", "店舗", "事務所"],
+            desc: "国内シェアNO.1。全車両「車検付」で移動の自由と資産価値を両立。北海道の積雪・寒冷地設置実績が最も豊富です。",
+            featured: true,
+            hokkaido: "✅ 多数あり",
+            shaken: "✅ 全車取得",
+            url: "https://www.trailer-house.co.jp/"
+        },
+        {
+            name: "ルクラ株式会社 (Lukura)",
+            short: "ルクラ",
+            tags: ["店舗", "サロン", "宿泊"],
+            desc: "デザイン性とカスタマイズ性に強み。美容院やカフェとしての利用が多く、開業予約システムも完備されています。",
+            featured: false,
+            hokkaido: "⚠️ 要相談",
+            shaken: "✅ 対応可",
+            url: "https://www.lukura.jp/"
+        },
+        {
+            name: "カンバーランド・ジャパン",
+            short: "カンバーランド",
+            tags: ["宿泊", "RVパーク", "2階建"],
+            desc: "日本のトレーラーハウスの先駆け。RVリゾート開発のパイオニアで、宿泊事業のノウハウ提供が強みです。",
+            featured: true,
+            hokkaido: "✅ 実績あり",
+            shaken: "✅ 対応可",
+            url: "https://www.cumberland.jp/"
+        },
+        {
+            name: "HCT (ハウスカーテクノロジー)",
+            short: "HCT",
+            tags: ["大型店舗", "事務所"],
+            desc: "LIXILグループとの連携による高い住設品質。最大級のサイズと高い断熱性能をLPで詳しく公開しています。",
+            featured: false,
+            hokkaido: "✅ 対応可",
+            shaken: "✅ 対応可",
+            url: "https://hc-t.jp/lp/"
+        },
+        {
+            name: "BIBOX",
+            short: "BIBOX",
+            tags: ["住居", "趣味", "BOX型"],
+            desc: "スタイリッシュなコンテナ風外観が特徴。定住や趣味の部屋として、2026年最新のライフスタイルを提案。",
+            featured: false,
+            hokkaido: "⚠️ 寒冷地仕様確認",
+            shaken: "✅ 対応可",
+            url: "https://bibox.style/"
+        }
+    ];
 
-const showrooms = [
-  { region: "hokkaido", name: "北海道ショールーム", maker: "THD", address: "北海道内（予約制）", pin: "📍" },
-  { region: "chubu", name: "長野本社展示場", maker: "カンバーランド", address: "長野県須坂市", pin: "📍" },
-  { region: "kanto", name: "関東ベース展示場", maker: "パークホームズ", address: "千葉県内", pin: "📍" }
-];
+    const showrooms = [
+        { name: "北海道 苫小牧展示場", maker: "THD", addr: "北海道苫小牧市", btnLabel: "北海道開業相談・予約", url: "https://trailer-house-hokkaido.com/for-investment/reservation" },
+        { name: "ルクラ 豊橋ショールーム", maker: "ルクラ", addr: "愛知県豊橋市", btnLabel: "見学予約ページへ", url: "https://www.lukura.jp/reservation/" },
+        { name: "つくば展示場 (関東最大級)", maker: "THD", addr: "茨城県つくば市", btnLabel: "見学予約する", url: "https://www.trailer-house.co.jp/" },
+        { name: "長野本社展示場", maker: "カンバーランド", addr: "長野県須坂市", btnLabel: "公式サイトで確認", url: "https://www.cumberland.jp/" },
+        { name: "BIBOX 千葉木更津展示場", maker: "BIBOX", addr: "千葉県木更津市", btnLabel: "見学予約(公式サイト)", url: "https://bibox.style/" },
+        { name: "HCT 名古屋/岐阜ショールーム", maker: "HCT", addr: "愛知県・岐阜県", btnLabel: "事業用LPで詳細を見る", url: "https://hc-t.jp/lp/" }
+    ];
 
-const recommends = [
-  { name: "カンバーランド・ジャパン", reason: "開業ノウハウと寒冷地実績のバランスが最高。レンタル検討ならここ一択。" },
-  { name: "THD", reason: "北海道での設置実績が最多レベル。法規制周りの安心感が違います。" }
-];
+    function renderMakers() {
+        const grid = document.getElementById('makers-grid');
+        grid.innerHTML = makers.map(m => `
+            <div class="card">
+                ${m.featured ? '<div class="featured-tag">北海道実績NO.1</div>' : ''}
+                <span class="badge badge-blue">${m.tags.join(' / ')}</span>
+                <h3 style="margin: 0.5rem 0;">${m.name}</h3>
+                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem;">${m.desc}</p>
+                <a href="${m.url}" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">公式サイト ↗</a>
+            </div>
+        `).join('');
+    }
 
-function renderMakers(list) {
-  const grid = document.getElementById('makers-grid');
-  grid.innerHTML = list.map(m => `
-    <div class="maker-card ${m.featured ? 'featured' : ''}">
-      ${m.featured ? '<div class="featured-badge">推奨：北海道対応</div>' : ''}
-      <div class="maker-header">
-        <div class="maker-icon" style="background:${m.iconBg}">${m.icon}</div>
-        <div class="maker-title-box">
-          <h3>${m.name}</h3>
-          <div class="maker-loc">本社：${m.location}</div>
-        </div>
-      </div>
-      <div class="tag-cloud">
-        ${m.tagLabels.map(l => `<span class="tag tag-res">${l}</span>`).join('')}
-      </div>
-      <p class="maker-summary">${m.desc}</p>
-      <div class="spec-grid">
-        <div class="spec-item"><span class="spec-label">価格帯</span><span class="spec-val">${m.price}</span></div>
-        <div class="spec-item"><span class="spec-label">北海道対応</span><span class="spec-val ${m.hokkaido===true?'val-ok':''}">${m.hokkaido===true?'✅ 対応可':m.hokkaido}</span></div>
-        <div class="spec-item"><span class="spec-label">寒冷地仕様</span><span class="spec-val ${m.coldSpec?'val-ok':''}">${m.coldSpec?'✅ あり':'要確認'}</span></div>
-        <div class="spec-item"><span class="spec-label">レンタル</span><span class="spec-val">${m.rental?'✅ 可能':'✕ なし'}</span></div>
-      </div>
-      <a href="${m.url}" target="_blank" class="btn-web">公式サイトを見る</a>
-    </div>
-  `).join('');
-}
+    function renderShowrooms() {
+        const grid = document.getElementById('showroom-grid');
+        grid.innerHTML = showrooms.map(s => `
+            <div class="card showroom-card">
+                <div>
+                    <span class="badge badge-red">完全予約制</span>
+                    <h3 style="font-size: 1.1rem; margin: 0.5rem 0;">${s.name}</h3>
+                    <p style="font-size: 0.85rem; color: #64748b;">運営: ${s.maker}</p>
+                    <p style="font-size: 0.85rem; color: #1e293b; margin-top: 0.5rem;">📍 ${s.addr}</p>
+                </div>
+                <a href="${s.url}" target="_blank" class="btn-reserve">${s.btnLabel}</a>
+            </div>
+        `).join('');
+    }
 
-function renderCompare() {
-  const tbody = document.getElementById('compare-tbody');
-  tbody.innerHTML = makers.map(m => `
-    <tr>
-      <td><strong>${m.short}</strong></td>
-      <td>${m.price}</td>
-      <td>${m.tags.includes('camp')?'◯':'−'}</td>
-      <td>${m.coldSpec?'◯':'△'}</td>
-      <td>${m.hokkaido===true?'◯':m.hokkaido}</td>
-      <td>${m.custom?'◯':'−'}</td>
-      <td>${m.rental?'◯':'−'}</td>
-    </tr>
-  `).join('');
-}
+    function renderCompare() {
+        const tbody = document.getElementById('compare-tbody');
+        tbody.innerHTML = makers.map(m => `
+            <tr>
+                <td><strong>${m.short}</strong></td>
+                <td>${m.tags.slice(0,2).join(', ')}</td>
+                <td>${m.shaken}</td>
+                <td>${m.hokkaido}</td>
+                <td style="font-size: 0.8rem;">${m.desc.substring(0,30)}...</td>
+            </tr>
+        `).join('');
+    }
 
-function renderShowrooms() {
-  const list = document.getElementById('showroom-list');
-  list.innerHTML = showrooms.map(s => `
-    <div class="maker-card">
-      <div class="maker-header">
-        <div class="maker-icon" style="background:#f1f5f9">${s.pin}</div>
-        <div class="maker-title-box">
-          <h3>${s.name}</h3>
-          <div class="maker-loc">${s.maker}</div>
-        </div>
-      </div>
-      <p class="maker-summary">場所：${s.address}</p>
-      <button class="btn-web" style="background:#64748b">詳細・予約</button>
-    </div>
-  `).join('');
-}
+    function switchTab(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
 
-function renderRecommends() {
-  const grid = document.getElementById('recommend-grid');
-  grid.innerHTML = recommends.map(r => `
-    <div class="maker-card featured">
-      <h3>${r.name}</h3>
-      <p class="maker-summary" style="margin-top:1rem">${r.reason}</p>
-    </div>
-  `).join('');
-}
-
-function filterMakers() {
-  const q = document.getElementById('search-input').value.toLowerCase();
-  const use = document.getElementById('use-filter').value;
-  const region = document.getElementById('region-filter').value;
-  const filtered = makers.filter(m => {
-    const matchQ = !q || m.name.toLowerCase().includes(q) || m.desc.includes(q);
-    const matchUse = !use || m.tags.includes(use);
-    const matchRegion = !region || m.region === region;
-    return matchQ && matchUse && matchRegion;
-  });
-  renderMakers(filtered);
-}
-
-function switchTab(tab) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  document.querySelector(`.tab-btn[data-tab="${tab}"]`).classList.add('active');
-  window.scrollTo({top: document.querySelector('.hero').offsetHeight - 50, behavior: 'smooth'});
-}
-
-// Footer links
-document.getElementById('footer-links-container').innerHTML = makers.slice(0,5).map(m => `
-  <a href="${m.url}" target="_blank">${m.short}</a>
-`).join(' / ');
-
-// Init
-renderMakers(makers);
-renderCompare();
-renderShowrooms();
-renderRecommends();
-
+    // Init
+    renderMakers();
+    renderShowrooms();
+    renderCompare();
+    document.getElementById('footer-links').innerHTML = makers.map(m => `<a href="${m.url}" target="_blank">${m.short}</a>`).join('');
 </script>
+
 </body>
 </html>
